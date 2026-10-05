@@ -1,0 +1,96 @@
+:root {
+  --verde: #2f7d5f;
+  --verde-claro: #e7f4ee;
+  --calido: #f5a259;
+  --texto: #263238;
+  --gris: #6b7280;
+  --borde: #e2e8f0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fafafa;
+  color: var(--texto);
+}
+
+.contenedor {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.barra-superior {
+  background: var(--verde);
+  color: white;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.barra-superior a { color: white; text-decoration: none; font-weight: 600; }
+
+.tarjeta {
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.boton {
+  background: var(--verde);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.boton:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.boton-secundario {
+  background: white;
+  color: var(--verde);
+  border: 1px solid var(--verde);
+}
+
+.campo { margin-bottom: 12px; display: flex; flex-direction: column; gap: 4px; }
+.campo label { font-size: 13px; color: var(--gris); font-weight: 600; }
+.campo input, .campo select, .campo textarea {
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.etiqueta-estado {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--verde-claro);
+  color: var(--verde);
+}
+
+.error { color: #b91c1c; font-size: 14px; margin: 8px 0; }
+.ayuda { color: var(--gris); font-size: 13px; }
+
+nav.tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+nav.tabs a {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--gris);
+  font-size: 14px;
+  border: 1px solid var(--borde);
+}
+nav.tabs a.activo { background: var(--verde); color: white; border-color: var(--verde); }
