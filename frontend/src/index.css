@@ -12,20 +12,20 @@
 
 body {
   margin: 0;
-  background: #fafafa;
+  background: #f5f7f8;
   color: var(--texto);
 }
 
 .contenedor {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .barra-superior {
-  background: var(--verde);
+  background: #2f7d5f;
   color: white;
-  padding: 14px 16px;
+  padding: 12px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
