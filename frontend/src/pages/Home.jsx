@@ -2,20 +2,31 @@ import logo from '../assets/Logo-Adoptly.jpg';
  
 export default function Home() {
 return (
-<div style={{ textAlign: 'center', padding: '68px' }}>
+<div
+style={{
+maxWidth: '1200px',
+margin: '0 auto',
+padding: '40px'
+}}
+>
+{/* HERO PRINCIPAL */}
  
-<img
-src={logo}
-alt="Logo Adoptly"
-style={{ width: '250px',
-    borderRadius: '15px'
- }}
-/>
- 
+<div
+style={{
+display: 'flex',
+alignItems: 'center',
+justifyContent: 'space-between',
+gap: '40px',
+flexWrap: 'wrap',
+marginBottom: '80px'
+}}
+>
+<div style={{ flex: 1 }}>
 <h1
 style={{
-fontSize: '55px',
-color: '#1f6f63'
+fontSize: '60px',
+color: '#2f7d5f',
+marginBottom: '10px'
 }}
 >
 ADOPTLY
@@ -23,40 +34,163 @@ ADOPTLY
  
 <h2
 style={{
-maxWidth: '700px',
-margin: '0 auto',
-color: '#2f3e46'
+fontSize: '30px',
+color: '#374151'
 }}
 >
 Unimos fundaciones, rescatistas y adoptantes en un solo lugar
 </h2>
-<p>
-  Encuentra mascotas en adopción, 
-  conoce su historia y conecta con organizaciones comprometidas. 
-  Brinda una segunda oportunidad de vida.  
+ 
+<p
+style={{
+fontSize: '18px',
+lineHeight: '1.8'
+}}
+>
+Encuentra mascotas en adopción, conoce su historia y conecta
+con organizaciones comprometidas con brindarles una segunda
+oportunidad de vida.
 </p>
-<div style={{ marginTop: '30px' }}>
  
-<button>
-Explorar mascotas
+<div
+style={{
+display: 'flex',
+gap: '15px',
+marginTop: '25px'
+}}
+>
+<button className="boton">
+Explorar Mascotas
 </button>
  
-<button style={{ marginLeft: '15px' }}>
-Iniciar sesión
+<button className="boton boton-secundario">
+Iniciar Sesión
 </button>
- 
 </div>
-<hr style={{ margin: '50px 0' }} />
+</div>
  
-<h2>¿Quiénes somos?</h2>
+<div style={{ flex: 1, textAlign: 'center' }}>
+    <img
+src={logo}
+alt="Logo Adoptly"
+ion 
+style={{
+    background: '#ffffff',
+    width: '400px',
+    borderRadius:'50px',
+    marginBottom:'20px'
 
-<p>
-Adoptly, orientado a facilitar la conexión 
-entre fundaciones, personas que rescatan animales y usuarios 
-interesados en adoptar mascotas.
-</p>
-<h2>¿Cómo funciona?</h2>
+}}
+></img>
+</div>
+</div>
  
+{/* QUIENES SOMOS */}
+ 
+<section
+style={{
+background: '#ffffff',
+padding: '30px',
+borderRadius: '20px',
+marginBottom: '50px'
+}}
+>
+<h2 style={{ color: '#2f7d5f' }}>
+¿Quiénes somos?
+</h2>
+ 
+<p>
+Somos una plataforma creada para apoyar a fundaciones y
+rescatistas que trabajan diariamente por el bienestar animal.
+Adoptly nace de la necesidad de organizar y centralizar los
+procesos de adopción en un solo lugar.
+</p>
+</section>
+ 
+{/* COMO FUNCIONA */}
+ 
+<section
+style={{
+marginBottom: '60px'
+}}
+>
+<h2
+style={{
+textAlign: 'center',
+color: '#2f7d5f'
+}}
+>
+¿Cómo funciona?
+</h2>
+ 
+<div
+style={{
+display: 'flex',
+justifyContent: 'center',
+gap: '30px',
+flexWrap: 'wrap',
+marginTop: '30px'
+}}
+>
+<div className="tarjeta">
+<h3>🐾 Buscar</h3>
+<p>
+Explora mascotas disponibles para adopción.
+</p>
+</div>
+ 
+<div className="tarjeta">
+<h3>📨 Solicitar</h3>
+<p>
+Envía solicitudes directamente a las fundaciones.
+</p>
+</div>
+ 
+<div className="tarjeta">
+<h3>🏡 Adoptar</h3>
+<p>
+Coordina el proceso y encuentra un nuevo compañero.
+</p>
+</div>
+</div>
+</section>
+ 
+{/* MASCOTAS DESTACADAS */}
+ 
+<section>
+<h2
+style={{
+textAlign: 'center',
+color: '#2f7d5f'
+}}
+>
+Mascotas destacadas
+</h2>
+ 
+<div
+style={{
+display: 'flex',
+gap: '20px',
+justifyContent: 'center',
+flexWrap: 'wrap'
+}}
+>
+<div className="tarjeta">
+<h3>🐶 Max</h3>
+<p>Perro • Bogotá</p>
+</div>
+ 
+<div className="tarjeta">
+<h3>🐱 Luna</h3>
+<p>Gato • Medellín</p>
+</div>
+ 
+<div className="tarjeta">
+<h3>🐶 Rocky</h3>
+<p>Perro • Cali</p>
+</div>
+</div>
+</section>
 </div>
 );
 }

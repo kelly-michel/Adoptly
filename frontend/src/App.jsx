@@ -10,6 +10,7 @@ import RegistroAdoptante from './pages/RegistroAdoptante.jsx';
 import FormularioAnimal from './pages/FormularioAnimal.jsx';
 import MisSolicitudes from './pages/MisSolicitudes.jsx';
 import Home from './pages/Home.jsx';
+import logo from './assets/Logo-Adoptly.jpg';
 
 function RutaPrivada({ rolRequerido, children }) {
   const { sesion } = useAuth();
