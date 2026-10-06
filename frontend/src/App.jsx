@@ -9,6 +9,7 @@ import RegistroFundacion from './pages/RegistroFundacion.jsx';
 import RegistroAdoptante from './pages/RegistroAdoptante.jsx';
 import FormularioAnimal from './pages/FormularioAnimal.jsx';
 import MisSolicitudes from './pages/MisSolicitudes.jsx';
+import Home from './pages/Home.jsx';
 
 function RutaPrivada({ rolRequerido, children }) {
   const { sesion } = useAuth();
@@ -36,7 +37,8 @@ export default function App() {
 
       <div className="contenedor">
         <Routes>
-          <Route path="/" element={<Busqueda />} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/buscar" element={<Busqueda />} />
           <Route path="/animales/:id" element={<DetalleAnimal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro/fundacion" element={<RegistroFundacion />} />
