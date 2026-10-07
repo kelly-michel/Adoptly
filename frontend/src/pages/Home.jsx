@@ -1,4 +1,5 @@
 import logo from '../assets/Logo-Adoptly.jpg';
+import './Home.css';
  
 export default function Home() {
 return (
@@ -17,14 +18,14 @@ display: 'flex',
 alignItems: 'center',
 justifyContent: 'space-between',
 gap: '40px',
-flexWrap: 'wrap',
+flexWrap: 'nowrap',
 marginBottom: '80px'
 }}
 >
 <div style={{ flex: 1 }}>
 <h1
 style={{
-fontSize: '60px',
+fontSize: '80px',
 color: '#2f7d5f',
 marginBottom: '10px'
 }}
@@ -34,7 +35,7 @@ ADOPTLY
  
 <h2
 style={{
-fontSize: '30px',
+fontSize: '36px',
 color: '#374151'
 }}
 >
@@ -68,7 +69,9 @@ Iniciar Sesión
 </button>
 </div>
 </div>
- 
+
+{/* Logo */}
+
 <div style={{ flex: 1, textAlign: 'center' }}>
     <img
 src={logo}
@@ -76,7 +79,7 @@ alt="Logo Adoptly"
 ion 
 style={{
     background: '#ffffff',
-    width: '400px',
+    width: '50x0px',
     borderRadius:'50px',
     marginBottom:'20px'
 
@@ -89,29 +92,39 @@ style={{
  
 <section
 style={{
+    
 background: '#ffffff',
-padding: '30px',
+padding: '50px',
 borderRadius: '20px',
-marginBottom: '50px'
+marginBottom: '70px',
+padding: '40px',
+boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
 }}
 >
 <h2 style={{ color: '#2f7d5f' }}>
 ¿Quiénes somos?
 </h2>
  
-<p>
+<p
+style={{
+fontSize: '18px',
+lineHeight: '1.8'
+}}>
 Somos una plataforma creada para apoyar a fundaciones y
 rescatistas que trabajan diariamente por el bienestar animal.
 Adoptly nace de la necesidad de organizar y centralizar los
 procesos de adopción en un solo lugar.
 </p>
+
+
 </section>
  
 {/* COMO FUNCIONA */}
  
 <section
 style={{
-marginBottom: '60px'
+marginBottom: '60px',
+padding: '10px'
 }}
 >
 <h2
@@ -129,7 +142,8 @@ display: 'flex',
 justifyContent: 'center',
 gap: '30px',
 flexWrap: 'wrap',
-marginTop: '30px'
+marginTop: '70px',
+boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
 }}
 >
 <div className="tarjeta">
@@ -161,7 +175,9 @@ Coordina el proceso y encuentra un nuevo compañero.
 <h2
 style={{
 textAlign: 'center',
-color: '#2f7d5f'
+color: '#2f7d5f',
+padding: '30px',
+
 }}
 >
 Mascotas destacadas
@@ -170,22 +186,35 @@ Mascotas destacadas
 <div
 style={{
 display: 'flex',
-gap: '20px',
+gap: '80px',
 justifyContent: 'center',
-flexWrap: 'wrap'
+flexWrap: 'wrap',
+boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
 }}
 >
-<div className="tarjeta">
+<div className="tarjeta"
+style={{
+    width:'250px',
+    minHeight:'350px'
+}}>
 <h3>🐶 Max</h3>
 <p>Perro • Bogotá</p>
 </div>
  
-<div className="tarjeta">
+<div className="tarjeta"
+style={{
+    width:'250px',
+    minHeight:'350px'
+}}>
 <h3>🐱 Luna</h3>
 <p>Gato • Medellín</p>
 </div>
  
-<div className="tarjeta">
+<div className="tarjeta"
+style={{
+    width:'250px',
+    minHeight:'350px'
+}}>
 <h3>🐶 Rocky</h3>
 <p>Perro • Cali</p>
 </div>
@@ -193,4 +222,4 @@ flexWrap: 'wrap'
 </section>
 </div>
 );
-}
+} 

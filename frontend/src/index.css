@@ -12,7 +12,7 @@
 
 body {
   margin: 0;
-  background: #f5f7f8;
+  background: #f3f7f6;
   color: var(--texto);
 }
 
@@ -25,13 +25,13 @@ body {
 .barra-superior {
   background: #2f7d5f;
   color: white;
-  padding: 12px 40px;
+  padding: 14px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.barra-superior a { color: white; text-decoration: none; font-weight: 600; }
+.barra-superior a { color: white; text-decoration: none; font-weight: 700;font-size: 20px; }
 
 .tarjeta {
   background: white;
@@ -51,7 +51,32 @@ body {
   cursor: pointer;
   width: 100%;
 }
-
+.barra-superior {
+background: var(--verde);
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 14px 40px;
+}
+ 
+.menu-demo {
+display: flex;
+gap: 25px;
+}
+ 
+.menu-demo button {
+background: red !important;
+color: yellow !important;
+border: 5px solid blue !important;
+border-radius: 999px !important;
+padding: 12px 24px !important;
+font-size: 18px !important;
+}
+ 
+.menu-demo button:hover {
+background: white;
+color: var(--verde);
+}
 .boton:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .boton-secundario {
@@ -78,7 +103,41 @@ body {
   background: var(--verde-claro);
   color: var(--verde);
 }
-
+.logo-menu {
+display: flex;
+align-items: center;
+gap: 70px;
+}
+.logo-texto{
+  color: white;
+margin: 0;
+font-size: 28px;
+font-weight: 700;
+}
+ 
+.nav-principal {
+display: flex;
+gap: 25px;
+}
+ 
+.nav-principal a {
+color: white;
+text-decoration: none;
+font-weight: 500;
+}
+ 
+.nav-principal a:hover {
+opacity: 0.8;
+}
+.prueba-boton {
+background: transparent;
+color: white;
+border: 1px solid rgba(255,255,255,0.9);
+border-radius: 999px;
+padding: 6px 16px;
+cursor: pointer;
+font-weight: 500;
+}
 .error { color: #b91c1c; font-size: 14px; margin: 8px 0; }
 .ayuda { color: var(--gris); font-size: 13px; }
 

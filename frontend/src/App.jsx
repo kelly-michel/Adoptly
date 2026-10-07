@@ -1,21 +1,22 @@
-import React from 'react';
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
-import { useAuth } from './context/AuthContext.jsx';
+import React from "react";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { useAuth } from "./context/AuthContext.jsx";
 
-import Busqueda from './pages/Busqueda.jsx';
-import DetalleAnimal from './pages/DetalleAnimal.jsx';
-import Login from './pages/Login.jsx';
-import RegistroFundacion from './pages/RegistroFundacion.jsx';
-import RegistroAdoptante from './pages/RegistroAdoptante.jsx';
-import FormularioAnimal from './pages/FormularioAnimal.jsx';
-import MisSolicitudes from './pages/MisSolicitudes.jsx';
-import Home from './pages/Home.jsx';
-import logo from './assets/Logo-Adoptly.jpg';
+import Busqueda from "./pages/Busqueda.jsx";
+import DetalleAnimal from "./pages/DetalleAnimal.jsx";
+import Login from "./pages/Login.jsx";
+import RegistroFundacion from "./pages/RegistroFundacion.jsx";
+import RegistroAdoptante from "./pages/RegistroAdoptante.jsx";
+import FormularioAnimal from "./pages/FormularioAnimal.jsx";
+import MisSolicitudes from "./pages/MisSolicitudes.jsx";
+import Home from "./pages/Home.jsx";
+import logo from "./assets/Logo-Adoptly.jpg";
 
 function RutaPrivada({ rolRequerido, children }) {
   const { sesion } = useAuth();
   if (!sesion) return <Navigate to="/login" replace />;
-  if (rolRequerido && sesion.usuario.rol !== rolRequerido) return <Navigate to="/" replace />;
+  if (rolRequerido && sesion.usuario.rol !== rolRequerido)
+    return <Navigate to="/" replace />;
   return children;
 }
 
@@ -25,11 +26,30 @@ export default function App() {
   return (
     <div>
       <div className="barra-superior">
-        <Link to="/">🐾 Adoptly</Link>
+        <div className="logo-menu">
+<h2 className="logo-texto">ADOPTLY</h2>
+ 
+<div className="menu-demo">
+<button className="prueba-boton">Inicio</button>
+<button className="prueba-boton">Explorar Mascotas</button>
+<button className="prueba-boton">Fundaciones</button>
+<button className="prueba-boton">Sobre Nosotros</button>
+<button className="prueba-boton">Blog</button>
+</div>
+        </div>
+
         {sesion ? (
-          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+          <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
             <span style={{ fontSize: 13 }}>{sesion.usuario.nombre}</span>
-            <a href="#" onClick={(e) => { e.preventDefault(); cerrarSesion(); }}>Salir</a>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                cerrarSesion();
+              }}
+            >
+              Salir
+            </a>
           </div>
         ) : (
           <Link to="/login">Ingresar</Link>
@@ -38,7 +58,7 @@ export default function App() {
 
       <div className="contenedor">
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Home />} />
           <Route path="/buscar" element={<Busqueda />} />
           <Route path="/animales/:id" element={<DetalleAnimal />} />
           <Route path="/login" element={<Login />} />
