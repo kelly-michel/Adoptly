@@ -44,7 +44,7 @@ async function listarSolicitudes(req, res, next) {
 
     if (req.user.rol === 'FUNDACION') {
       const result = await pool.query(
-        `SELECT s.*, a.nombre AS animal_nombre, u.nombre AS adoptante_nombre, u.correo AS adoptante_correo
+        `SELECT s.*, a.nombre AS animal_nombre, a.foto_url, u.nombre AS adoptante_nombre, u.correo AS adoptante_correo
          FROM solicitudes s
          JOIN animales a ON a.id = s.animal_id
          JOIN fundaciones f ON f.id = a.fundacion_id
