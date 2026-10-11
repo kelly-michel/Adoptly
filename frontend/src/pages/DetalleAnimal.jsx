@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { api } from '../api/client.js';
 import { useAuth } from '../context/AuthContext.jsx';
+import Foto from '../Components/Foto.jsx';
 
 export default function DetalleAnimal() {
   const { id } = useParams();
@@ -34,30 +35,51 @@ export default function DetalleAnimal() {
   if (error && !animal) return <p className="error">{error}</p>;
   if (!animal) return <p className="ayuda">Cargando...</p>;
 
+  const esAdoptante = sesion?.usuario.rol === 'ADOPTANTE';
+
   return (
-    <div className="tarjeta">
-      <h2 style={{ marginTop: 0 }}>{animal.nombre}</h2>
-      <span className="etiqueta-estado">{animal.estado}</span>
+    <div>
+      <Link to="/" className="ayuda" style={{ textDecoration: 'none' }}>← Volver a la búsqueda</Link>
+      <div className="detalle tarjeta" style={{ marginTop: 10 }}>
+        <Foto url={animal.foto_url} especie={animal.especie} nombre={animal.nombre} />
 
-      <p><strong>Especie:</strong> {animal.especie} {animal.raza ? `(${animal.raza})` : ''}</p>
-      <p><strong>Edad aproximada:</strong> {animal.edad_aprox}</p>
-      {animal.sexo && <p><strong>Sexo:</strong> {animal.sexo}</p>}
-      {animal.tamano && <p><strong>Tamaño:</strong> {animal.tamano}</p>}
-      <p><strong>Estado de salud:</strong> {animal.estado_salud}</p>
-      {animal.caracteristicas && <p><strong>Características:</strong> {animal.caracteristicas}</p>}
+        <div>
+          <h2 style={{ margin: '0 0 6px' }}>{animal.nombre}</h2>
+          <span className={`etiqueta-estado estado-${animal.estado}`}>{animal.estado}</span>
 
-      <hr />
-      <p><strong>Fundación responsable:</strong> {animal.fundacion_nombre}</p>
-      <p className="ayuda">{animal.fundacion_ubicacion}</p>
+          <div className="datos">
+            <span className="dato">{animal.especie}{animal.raza ? ` · ${animal.raza}` : ''}</span>
+            <span className="dato">{animal.edad_aprox}</span>
+            {animal.sexo && <span className="dato">{animal.sexo}</span>}
+            {animal.tamano && <span className="dato">Tamaño {animal.tamano.toLowerCase()}</span>}
+          </div>
 
-      {mensaje && <p style={{ color: 'var(--verde)' }}>{mensaje}</p>}
-      {error && <p className="error">{error}</p>}
+          <p><strong>Estado de salud:</strong> {animal.estado_salud}</p>
+          {animal.caracteristicas && <p><strong>Sobre {animal.nombre}:</strong> {animal.caracteristicas}</p>}
 
-      {animal.estado === 'DISPONIBLE' && !mensaje && (
-        <button className="boton" onClick={manifestarInteres} disabled={enviando}>
-          {enviando ? 'Enviando...' : 'Me interesa adoptar'}
-        </button>
-      )}
+          <div className="fundacion-box">
+            <strong>{animal.fundacion_nombre}</strong>
+            <div className="ayuda">📍 {animal.fundacion_ubicacion}</div>
+            {animal.fundacion_telefono && <div className="ayuda">📞 {animal.fundacion_telefono}</div>}
+          </div>
+
+          {mensaje && (
+            <p style={{ color: 'var(--verde)' }}>
+              {mensaje} <Link to="/mis-solicitudes">Ver mis solicitudes</Link>
+            </p>
+          )}
+          {error && <p className="error">{error}</p>}
+
+          {animal.estado === 'DISPONIBLE' && !mensaje && (!sesion || esAdoptante) && (
+            <button className="boton" onClick={manifestarInteres} disabled={enviando}>
+              {enviando ? 'Enviando...' : sesion ? 'Me interesa adoptar' : 'Ingresa para adoptar'}
+            </button>
+          )}
+          {sesion && !esAdoptante && (
+            <p className="ayuda">Inicia sesión como adoptante para enviar una solicitud.</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
