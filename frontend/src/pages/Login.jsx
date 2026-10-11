@@ -48,5 +48,7 @@ export default function Login() {
         <Link to="/registro/fundacion">como fundación</Link>.
       </p>
     </form>
+
+    
   );
 }
