@@ -51,6 +51,17 @@ solicitud pendiente), para tener algo que mostrar de una vez:
 npm run seed
 ```
 
+Para una demostración más completa (4 fundaciones más, ~25 animales, 4 adoptantes y
+solicitudes en distintos estados), corre además:
+
+```bash
+npm run seed:demo
+# o, para que TU fundación (registrada en la página) también reciba animales y solicitudes:
+npm run seed:demo -- tucorreo@ejemplo.com
+```
+
+Todas las cuentas de ejemplo del demo usan la clave `Demo2026*`.
+
 Levanta el servidor:
 
 ```bash
